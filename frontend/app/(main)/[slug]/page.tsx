@@ -3,13 +3,14 @@ import {
   fetchSanityPageBySlug,
   fetchSanityPagesStaticParams,
 } from "@/sanity/lib/fetch";
+import type { PAGES_SLUGS_QUERY_RESULT } from "@/sanity.types";
 import { notFound } from "next/navigation";
 import { generatePageMetadata } from "@/sanity/lib/metadata";
 
 export async function generateStaticParams() {
   const pages = await fetchSanityPagesStaticParams();
 
-  return pages.map((page) => ({
+  return pages.map((page: PAGES_SLUGS_QUERY_RESULT[number]) => ({
     slug: page.slug?.current,
   }));
 }
