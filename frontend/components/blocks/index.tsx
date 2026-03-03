@@ -21,6 +21,7 @@ import FAQ14 from "@/components/blocks/faq/faq14";
 import Feature1 from "@/components/blocks/feature/feature1";
 import Feature3 from "@/components/blocks/feature/feature3";
 import Feature12 from "@/components/blocks/feature/feature12";
+import Feature250 from "@/components/blocks/feature/feature250";
 import Feature15 from "@/components/blocks/feature/feature15";
 import Feature66 from "@/components/blocks/feature/feature66";
 import Feature117 from "@/components/blocks/feature/feature117";
@@ -97,6 +98,7 @@ const componentMap = {
   "feature-1": Feature1,
   "feature-3": Feature3,
   "feature-12": Feature12,
+  "feature-250": Feature250,
   "feature-15": Feature15,
   "feature-66": Feature66,
   "feature-117": Feature117,
