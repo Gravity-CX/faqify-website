@@ -87,7 +87,7 @@ export default function PricingHero({
                                 {plan.discountBadge && (
                                   <Badge
                                     variant="secondary"
-                                    className="border-amber-500/40 bg-amber-500/10 text-amber-700 dark:border-amber-400/30 dark:bg-amber-400/10 dark:text-amber-300"
+                                    className="bg-primary text-white"
                                   >
                                     {plan.discountBadge}
                                   </Badge>
