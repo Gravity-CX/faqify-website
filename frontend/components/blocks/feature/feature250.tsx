@@ -113,7 +113,7 @@ function AnimatedBeamIllustration() {
           className="z-10 flex size-32 items-center justify-center rounded-3xl border bg-muted lg:size-42"
         >
           <img
-            src="/favicon/favicon.svg"
+            src="https://cdn.sanity.io/images/22ujj60v/production/390c0eff2bb25f11d0b5ac3d391e9c1d1fc2dc60-250x250.svg"
             className="size-14 dark:invert lg:size-18"
             alt=""
           />
