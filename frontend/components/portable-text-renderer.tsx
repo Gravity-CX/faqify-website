@@ -9,6 +9,8 @@ import { ReactNode } from "react";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
+type BlockComponentProps = { children?: ReactNode };
+
 const getTextFromChildren = (children: ReactNode): string => {
   if (Array.isArray(children)) {
     return children
@@ -24,7 +26,14 @@ const getTextFromChildren = (children: ReactNode): string => {
 
 const portableTextComponents: PortableTextProps["components"] = {
   types: {
-    image: ({ value }) => {
+    image: ({
+      value,
+    }: {
+      value: {
+        asset: { url: string; metadata: { lqip?: string; dimensions: { width: number; height: number } } };
+        alt?: string;
+      };
+    }) => {
       const { url, metadata } = value.asset;
       const { lqip, dimensions } = metadata;
       return (
@@ -40,7 +49,7 @@ const portableTextComponents: PortableTextProps["components"] = {
         />
       );
     },
-    youtube: ({ value }) => {
+    youtube: ({ value }: { value: { videoId: string } }) => {
       const { videoId } = value;
       return (
         <div className="aspect-video max-w-180 rounded-xl overflow-hidden mb-4">
@@ -48,7 +57,7 @@ const portableTextComponents: PortableTextProps["components"] = {
         </div>
       );
     },
-    code: ({ value }) => {
+    code: ({ value }: { value: { code: string; filename?: string; language?: string } }) => {
       return (
         <div className="min-w-full grid my-4 overflow-x-auto rounded-lg border border-border text-xs lg:text-sm bg-primary">
           <div className="flex items-center justify-between px-4 py-2 border-b border-border text-background font-mono">
@@ -82,7 +91,7 @@ const portableTextComponents: PortableTextProps["components"] = {
         </div>
       );
     },
-    alert: ({ value }) => {
+    alert: ({ value }: { value: { title?: string; description?: string } }) => {
       const { title, description } = value;
       return (
         <Alert className="my-4">
@@ -94,8 +103,8 @@ const portableTextComponents: PortableTextProps["components"] = {
     },
   },
   block: {
-    normal: ({ children }) => <p className="mb-4">{children}</p>,
-    h1: ({ children }) => {
+    normal: ({ children }: BlockComponentProps) => <p className="mb-4">{children}</p>,
+    h1: ({ children }: BlockComponentProps) => {
       const text = getTextFromChildren(children);
       const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
       return (
@@ -104,7 +113,7 @@ const portableTextComponents: PortableTextProps["components"] = {
         </h1>
       );
     },
-    h2: ({ children }) => {
+    h2: ({ children }: BlockComponentProps) => {
       const text = getTextFromChildren(children);
       const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
       return (
@@ -113,7 +122,7 @@ const portableTextComponents: PortableTextProps["components"] = {
         </h2>
       );
     },
-    h3: ({ children }) => {
+    h3: ({ children }: BlockComponentProps) => {
       const text = getTextFromChildren(children);
       const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
       return (
@@ -122,7 +131,7 @@ const portableTextComponents: PortableTextProps["components"] = {
         </h3>
       );
     },
-    h4: ({ children }) => {
+    h4: ({ children }: BlockComponentProps) => {
       const text = getTextFromChildren(children);
       const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
       return (
@@ -131,7 +140,7 @@ const portableTextComponents: PortableTextProps["components"] = {
         </h4>
       );
     },
-    h5: ({ children }) => {
+    h5: ({ children }: BlockComponentProps) => {
       const text = getTextFromChildren(children);
       const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-");
       return (
@@ -140,19 +149,25 @@ const portableTextComponents: PortableTextProps["components"] = {
         </h5>
       );
     },
-    blockquote: ({ children }) => (
+    blockquote: ({ children }: BlockComponentProps) => (
       <blockquote className="my-4 border-l-4 border-border pl-4 italic font-medium">
         {children}
       </blockquote>
     ),
   },
   marks: {
-    link: ({ value, children }) => {
+    link: ({
+      value,
+      children,
+    }: {
+      value?: { href?: string; target?: boolean };
+      children: ReactNode;
+    }) => {
       return (
         <Link
           href={value?.href}
-          target={value.target ? "_blank" : undefined}
-          rel={value.target ? "noopener" : undefined}
+          target={value?.target ? "_blank" : undefined}
+          rel={value?.target ? "noopener" : undefined}
           className="underline"
         >
           {children}
@@ -161,16 +176,16 @@ const portableTextComponents: PortableTextProps["components"] = {
     },
   },
   list: {
-    bullet: ({ children }) => (
+    bullet: ({ children }: BlockComponentProps) => (
       <ul className="list-disc pl-4 mb-4">{children}</ul>
     ),
-    number: ({ children }) => (
+    number: ({ children }: BlockComponentProps) => (
       <ol className="list-decimal pl-4 mb-4">{children}</ol>
     ),
   },
   listItem: {
-    bullet: ({ children }) => <li className="mb-2">{children}</li>,
-    number: ({ children }) => <li className="mb-2">{children}</li>,
+    bullet: ({ children }: BlockComponentProps) => <li className="mb-2">{children}</li>,
+    number: ({ children }: BlockComponentProps) => <li className="mb-2">{children}</li>,
   },
 };
 

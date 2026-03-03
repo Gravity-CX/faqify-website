@@ -22,8 +22,8 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
   const [formState, setFormState] = useState<ContactFormState>({});
 
   const form = useForm<ContactFormValues>({
-    // Assertion: @hookform/resolvers typings target Zod 3; Zod 4 works at runtime
-    resolver: zodResolver(contactFormSchema) as never,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- zodResolver typings target Zod 3; Zod 4 works at runtime
+    resolver: zodResolver(contactFormSchema as any),
     defaultValues: {
       firstName: "",
       lastName: "",
