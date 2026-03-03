@@ -137,6 +137,10 @@ Deploy the Sanity Studio to Vercel:
 
 Add your domain name for both the Next.js app (for example, `https://yourwebsite.com`) and the Sanity Studio (for example, `https://sanity.yourwebsite.com/`) to the CORS Origins in your Sanity project settings to allow your deployed site to communicate with Sanity.
 
+#### 3. On-demand revalidation (optional)
+
+To have the website reflect published Sanity content without redeploying, configure a Sanity document webhook: in [sanity.io/manage](https://www.sanity.io/manage) → your project → API → Webhooks, create a webhook that POSTs to `https://<your-website-domain>/api/revalidate/all` on Create/Update/Delete, and set the same secret as `SANITY_REVALIDATE_SECRET` in Vercel.
+
 ### Inviting collaborators
 
 Now that you've deployed your Next.js application and Sanity Studio, you can optionally invite a collaborator to your Studio. Open up [Manage](https://www.sanity.io/manage), select your project and click "Invite project members"
@@ -165,6 +169,7 @@ All environment variables and their descriptions:
 - `NEXT_PUBLIC_SANITY_PROJECT_ID` - your Sanity project ID. For example, abc12345.
 - `NEXT_PUBLIC_SANITY_DATASET` - your Sanity dataset name. For example, production.
 - `SANITY_API_READ_TOKEN` - your Sanity read token for Next.js to fetch data.
+- `SANITY_REVALIDATE_SECRET` - secret used to verify the Sanity webhook that triggers on-demand cache revalidation when content is published. Set the same value in your Sanity project’s webhook (API → Webhooks) and in Vercel so the site updates without redeploying.
 - `RESEND_API_KEY` - your RESEND api key for the contact form.
 - `RESEND_TO_EMAIL` - your email address to receive contact form submissions.
 - `RESEND_FROM_EMAIL` - your email address to send contact form submissions from.

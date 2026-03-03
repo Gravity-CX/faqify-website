@@ -1,5 +1,21 @@
 import { sanityFetch } from "@/sanity/lib/live";
 import { HEADER_QUERY } from "@/sanity/queries/header";
+
+/** Single cache tag for all Sanity data; used with revalidateTag() when content is published. */
+export const SANITY_CACHE_TAG = "sanity";
+
+type SanityFetchOptions = Parameters<typeof sanityFetch>[0];
+
+/** Wraps sanityFetch with SANITY_CACHE_TAG for on-demand revalidation. Exported for use in sitemap etc. */
+export async function fetchWithRevalidate<T>(
+  options: SanityFetchOptions
+): Promise<T> {
+  const { data } = await sanityFetch({
+    ...options,
+    tags: [SANITY_CACHE_TAG],
+  });
+  return data as T;
+}
 import { FOOTER_QUERY } from "@/sanity/queries/footer";
 import { BANNER_QUERY } from "@/sanity/queries/banner";
 import { PAGE_QUERY, PAGES_SLUGS_QUERY } from "@/sanity/queries/page";
@@ -28,50 +44,29 @@ import type {
   HEADER_QUERY_RESULT,
 } from "@/sanity.types";
 
-export const fetchSanityHeader = async (): Promise<HEADER_QUERY_RESULT> => {
-  const { data } = await sanityFetch({
-    query: HEADER_QUERY,
-  });
-  return data;
-};
+export const fetchSanityHeader = async (): Promise<HEADER_QUERY_RESULT> =>
+  fetchWithRevalidate<HEADER_QUERY_RESULT>({ query: HEADER_QUERY });
 
-export const fetchSanityFooter = async (): Promise<FOOTER_QUERY_RESULT> => {
-  const { data } = await sanityFetch({
-    query: FOOTER_QUERY,
-  });
-  return data;
-};
+export const fetchSanityFooter = async (): Promise<FOOTER_QUERY_RESULT> =>
+  fetchWithRevalidate<FOOTER_QUERY_RESULT>({ query: FOOTER_QUERY });
 
-export const fetchSanityBanner = async (): Promise<BANNER_QUERY_RESULT> => {
-  const { data } = await sanityFetch({
-    query: BANNER_QUERY,
-  });
-  return data;
-};
+export const fetchSanityBanner = async (): Promise<BANNER_QUERY_RESULT> =>
+  fetchWithRevalidate<BANNER_QUERY_RESULT>({ query: BANNER_QUERY });
 
 export const fetchSanityPageBySlug = async ({
   slug,
 }: {
   slug: string;
-}): Promise<PAGE_QUERY_RESULT> => {
-  const { data } = await sanityFetch({
-    query: PAGE_QUERY,
-    params: { slug },
-  });
-
-  return data;
-};
+}): Promise<PAGE_QUERY_RESULT> =>
+  fetchWithRevalidate<PAGE_QUERY_RESULT>({ query: PAGE_QUERY, params: { slug }});
 
 export const fetchSanityPagesStaticParams =
-  async (): Promise<PAGES_SLUGS_QUERY_RESULT> => {
-    const { data } = await sanityFetch({
+  async (): Promise<PAGES_SLUGS_QUERY_RESULT> =>
+    fetchWithRevalidate<PAGES_SLUGS_QUERY_RESULT>({
       query: PAGES_SLUGS_QUERY,
       perspective: "published",
       stega: false,
     });
-
-    return data;
-  };
 
 export const fetchSanityPosts = async ({
   page,
@@ -82,76 +77,42 @@ export const fetchSanityPosts = async ({
 }): Promise<POSTS_QUERY_RESULT> => {
   const offset = page && limit ? (page - 1) * limit : 0;
   const end = offset + limit;
-  const { data } = await sanityFetch({
+  return fetchWithRevalidate<POSTS_QUERY_RESULT>({
     query: POSTS_QUERY,
     params: { offset, end },
   });
-
-  return data;
 };
 
 export const fetchSanityChangelogs =
-  async (): Promise<CHANGELOGS_QUERY_RESULT> => {
-    const { data } = await sanityFetch({
-      query: CHANGELOGS_QUERY,
-    });
+  async (): Promise<CHANGELOGS_QUERY_RESULT> =>
+    fetchWithRevalidate<CHANGELOGS_QUERY_RESULT>({ query: CHANGELOGS_QUERY });
 
-    return data;
-  };
+export const fetchSanityTeam = async (): Promise<TEAM_QUERY_RESULT> =>
+  fetchWithRevalidate<TEAM_QUERY_RESULT>({ query: TEAM_QUERY });
 
-export const fetchSanityTeam = async (): Promise<TEAM_QUERY_RESULT> => {
-  const { data } = await sanityFetch({
-    query: TEAM_QUERY,
-  });
-  return data;
-};
-
-export const fetchSanityPostsCount = async (): Promise<number> => {
-  const { data } = await sanityFetch({
-    query: POSTS_COUNT_QUERY,
-  });
-  return data;
-};
+export const fetchSanityPostsCount = async (): Promise<number> =>
+  fetchWithRevalidate<number>({ query: POSTS_COUNT_QUERY });
 
 export const fetchSanityPostBySlug = async ({
   slug,
 }: {
   slug: string;
-}): Promise<POST_QUERY_RESULT> => {
-  const { data } = await sanityFetch({
-    query: POST_QUERY,
-    params: { slug },
-  });
-
-  return data;
-};
+}): Promise<POST_QUERY_RESULT> =>
+  fetchWithRevalidate<POST_QUERY_RESULT>({ query: POST_QUERY, params: { slug }});
 
 export const fetchSanityPostsStaticParams =
-  async (): Promise<POSTS_SLUGS_QUERY_RESULT> => {
-    const { data } = await sanityFetch({
+  async (): Promise<POSTS_SLUGS_QUERY_RESULT> =>
+    fetchWithRevalidate<POSTS_SLUGS_QUERY_RESULT>({
       query: POSTS_SLUGS_QUERY,
       perspective: "published",
       stega: false,
     });
 
-    return data;
-  };
+export const fetchSanitySettings = async (): Promise<SETTINGS_QUERY_RESULT> =>
+  fetchWithRevalidate<SETTINGS_QUERY_RESULT>({ query: SETTINGS_QUERY });
 
-export const fetchSanitySettings = async (): Promise<SETTINGS_QUERY_RESULT> => {
-  const { data } = await sanityFetch({
-    query: SETTINGS_QUERY,
-  });
-
-  return data;
-};
-
-export const fetchSanityContact = async (): Promise<CONTACT_QUERY_RESULT> => {
-  const { data } = await sanityFetch({
-    query: CONTACT_QUERY,
-  });
-
-  return data;
-};
+export const fetchSanityContact = async (): Promise<CONTACT_QUERY_RESULT> =>
+  fetchWithRevalidate<CONTACT_QUERY_RESULT>({ query: CONTACT_QUERY });
 
 export const getOgImageUrl = ({
   type,
