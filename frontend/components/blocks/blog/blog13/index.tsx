@@ -1,5 +1,5 @@
 import SectionContainer from "@/components/ui/section-container";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, ChevronRight } from "lucide-react";
@@ -8,7 +8,7 @@ import { urlFor } from "@/sanity/lib/image";
 import PostDate from "@/components/post-date";
 import Link from "next/link";
 
-type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number];
+type Block = NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number];
 type Blog13 = Extract<Block, { _type: "blog-13" }>;
 
 export default function Blog13({ padding, posts, gridColumns }: Blog13) {

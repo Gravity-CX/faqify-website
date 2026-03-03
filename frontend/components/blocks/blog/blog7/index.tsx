@@ -10,9 +10,9 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 
-type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number];
+type Block = NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number];
 type Blog7 = Extract<Block, { _type: "blog-7" }>;
 
 export default function Blog7({ padding, posts, gridColumns }: Blog7) {

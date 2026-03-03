@@ -2,10 +2,10 @@ import { cn } from "@/lib/utils";
 import Icon from "@/components/icon";
 import SectionContainer from "@/components/ui/section-container";
 import { ColorName, getColor } from "@/lib/color";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 
 type Timeline5Props = Extract<
-  NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],
+  NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number],
   { _type: "timeline-5" }
 >;
 

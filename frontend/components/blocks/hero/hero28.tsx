@@ -3,10 +3,10 @@ import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import Icon from "@/components/icon";
 import { urlFor } from "@/sanity/lib/image";
-import { PAGE_QUERYResult, LinkIcon } from "@/sanity.types";
+import { PAGE_QUERY_RESULT, LinkIcon } from "@/sanity.types";
 
 type Hero28Props = Extract<
-  NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],
+  NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number],
   { _type: "hero-28" }
 >;
 

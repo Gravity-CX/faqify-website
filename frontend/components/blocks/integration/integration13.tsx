@@ -7,11 +7,11 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { urlFor } from "@/sanity/lib/image";
 import SectionContainer from "@/components/ui/section-container";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 import { buttonVariants } from "@/components/ui/button";
 
 type Integration13Props = Extract<
-  NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],
+  NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number],
   { _type: "integration-13" }
 >;
 

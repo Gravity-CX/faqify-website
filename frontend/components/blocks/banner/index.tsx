@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { BANNER_QUERYResult } from "@/sanity.types";
+import { BANNER_QUERY_RESULT } from "@/sanity.types";
 
-type BannerData = BANNER_QUERYResult[0];
+type BannerData = BANNER_QUERY_RESULT[0];
 
 interface BannerProps {
   data: BannerData;

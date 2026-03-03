@@ -4,14 +4,14 @@ import SectionContainer from "@/components/ui/section-container";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import PostDate from "@/components/post-date";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 import { fetchSanityChangelogs } from "@/sanity/lib/fetch";
 import PortableTextRenderer from "@/components/portable-text-renderer";
 import { Separator } from "@/components/ui/separator";
 import { ColorName, getColor } from "@/lib/color";
 
 type Changelogs3Props = Extract<
-  NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],
+  NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number],
   { _type: "changelog-3" }
 >;
 

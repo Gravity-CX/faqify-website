@@ -1,11 +1,11 @@
 import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link";
 import Image from "next/image";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 import Icon from "@/components/icon";
 import { cn } from "@/lib/utils";
 
-type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number];
+type Block = NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number];
 type Feature202 = Extract<Block, { _type: "feature-202" }>;
 type Feature202Card = Extract<
   NonNullable<Feature202["columns"]>[number],

@@ -15,10 +15,10 @@ import Icon from "@/components/icon";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import SectionContainer from "@/components/ui/section-container";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 
 type Gallery9Props = Extract<
-  NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],
+  NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number],
   { _type: "gallery-9" }
 >;
 

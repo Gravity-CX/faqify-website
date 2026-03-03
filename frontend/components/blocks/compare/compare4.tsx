@@ -5,10 +5,10 @@ import { Fragment } from "react";
 import Icon from "@/components/icon";
 import PortableTextRenderer from "@/components/portable-text-renderer";
 import SectionContainer from "@/components/ui/section-container";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 
 type Compare4Props = Extract<
-  NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],
+  NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number],
   { _type: "compare-4" }
 >;
 

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import SectionContainer from "@/components/ui/section-container";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 import Icon from "@/components/icon";
 
 import { Card, CardContent } from "@/components/ui/card";
@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/carousel";
 import { Progress } from "@/components/ui/progress";
 
-type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number];
+type Block = NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number];
 type Feature12 = Extract<Block, { _type: "feature-12" }>;
 
 export default function Feature12({ padding, tagline, columns }: Feature12) {

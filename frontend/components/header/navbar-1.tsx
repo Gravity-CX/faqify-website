@@ -9,8 +9,8 @@ import type {
   Link as SanityLink,
   LinkGroup as SanityLinkGroup,
   LinkIcon as SanityLinkIcon,
-  SETTINGS_QUERYResult,
-  HEADER_QUERYResult,
+  SETTINGS_QUERY_RESULT,
+  HEADER_QUERY_RESULT,
 } from "@/sanity.types";
 import { cn } from "@/lib/utils";
 import { DialogClose } from "@radix-ui/react-dialog";
@@ -44,8 +44,8 @@ type NavigationItem = (SanityLink | SanityLinkGroup | SanityLinkIcon) & {
 
 interface Navbar1Props {
   className?: string;
-  settings: SETTINGS_QUERYResult;
-  navigation: HEADER_QUERYResult;
+  settings: SETTINGS_QUERY_RESULT;
+  navigation: HEADER_QUERY_RESULT;
 }
 
 const isLinkGroup = (

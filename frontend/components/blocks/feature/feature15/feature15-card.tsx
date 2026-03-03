@@ -1,7 +1,7 @@
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 import Icon from "@/components/icon";
 
-type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number];
+type Block = NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number];
 type Feature15 = Extract<Block, { _type: "feature-15" }>;
 type Feature15Card = Extract<
   NonNullable<Feature15["columns"]>[number],

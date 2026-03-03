@@ -11,7 +11,7 @@ import { urlFor } from "@/sanity/lib/image";
 import PostDate from "@/components/post-date";
 import { Separator } from "@/components/ui/separator";
 import { Clock, Facebook, Twitter, Linkedin } from "lucide-react";
-import { POST_QUERYResult } from "@/sanity.types";
+import type { POST_QUERY_RESULT } from "@/sanity.types";
 
 type BreadcrumbLink = {
   label: string;
@@ -24,7 +24,7 @@ type Heading = {
   id: string;
 };
 
-type BlockContent = NonNullable<POST_QUERYResult>["body"];
+type BlockContent = NonNullable<POST_QUERY_RESULT>["body"];
 type Block = NonNullable<BlockContent>[number];
 type TextBlock = Extract<
   Block,

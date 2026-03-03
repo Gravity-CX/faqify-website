@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/accordion";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import PortableTextRenderer from "@/components/portable-text-renderer";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 
 interface PlusSignsProps extends SVGProps<SVGSVGElement> {
   className?: string;
@@ -58,7 +58,7 @@ const PlusSigns = ({ className, ...props }: PlusSignsProps) => {
 };
 
 type FAQProps = Extract<
-  NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],
+  NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number],
   { _type: "faq-14" }
 >;
 

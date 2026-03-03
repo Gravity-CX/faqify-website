@@ -9,12 +9,12 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 import { fetchSanityPosts, fetchSanityPostsCount } from "@/sanity/lib/fetch";
 import Pagination from "@/components/pagination";
 
 type AllPosts7Props = Extract<
-  NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],
+  NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number],
   { _type: "all-posts-7" }
 >;
 

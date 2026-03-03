@@ -5,10 +5,10 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import Icon from "@/components/icon";
 import SectionContainer from "@/components/ui/section-container";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 
 type Timeline3Props = Extract<
-  NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],
+  NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number],
   { _type: "timeline-3" }
 >;
 

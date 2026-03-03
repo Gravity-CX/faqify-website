@@ -17,10 +17,10 @@ import Link from "next/link";
 import { urlFor } from "@/sanity/lib/image";
 import { cn } from "@/lib/utils";
 import SectionContainer from "@/components/ui/section-container";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 
 type Gallery8Props = Extract<
-  NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],
+  NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number],
   { _type: "gallery-8" }
 >;
 

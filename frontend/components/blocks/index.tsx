@@ -1,4 +1,4 @@
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 import SectionHeader from "@/components/blocks/section-header";
 import LegalSection from "@/components/blocks/legal-section";
 import Hero12 from "@/components/blocks/hero/hero12";
@@ -72,7 +72,7 @@ import Integration11 from "@/components/blocks/integration/integration11";
 import Integration13 from "@/components/blocks/integration/integration13";
 import Cta12 from "@/components/blocks/cta/cta12";
 
-type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number];
+type Block = NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number];
 
 const componentMap = {
   "section-header": SectionHeader,

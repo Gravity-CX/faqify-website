@@ -5,10 +5,10 @@ import Icon from "@/components/icon";
 import SectionContainer from "@/components/ui/section-container";
 import Tag from "@/components/ui/tag";
 import VideoPlayer from "./video-player";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 
 type Timeline4Props = Extract<
-  NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],
+  NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number],
   { _type: "timeline-4" }
 >;
 

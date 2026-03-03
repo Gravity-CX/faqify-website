@@ -13,36 +13,36 @@ import {
 } from "@/sanity/queries/post";
 import { CHANGELOGS_QUERY } from "@/sanity/queries/changelog";
 import { TEAM_QUERY } from "@/sanity/queries/team";
-import {
-  PAGE_QUERYResult,
-  PAGES_SLUGS_QUERYResult,
-  POST_QUERYResult,
-  POSTS_QUERYResult,
-  POSTS_SLUGS_QUERYResult,
-  FOOTER_QUERYResult,
-  BANNER_QUERYResult,
-  SETTINGS_QUERYResult,
-  CONTACT_QUERYResult,
-  CHANGELOGS_QUERYResult,
-  TEAM_QUERYResult,
-  HEADER_QUERYResult,
+import type {
+  PAGE_QUERY_RESULT,
+  PAGES_SLUGS_QUERY_RESULT,
+  POST_QUERY_RESULT,
+  POSTS_QUERY_RESULT,
+  POSTS_SLUGS_QUERY_RESULT,
+  FOOTER_QUERY_RESULT,
+  BANNER_QUERY_RESULT,
+  SETTINGS_QUERY_RESULT,
+  CONTACT_QUERY_RESULT,
+  CHANGELOGS_QUERY_RESULT,
+  TEAM_QUERY_RESULT,
+  HEADER_QUERY_RESULT,
 } from "@/sanity.types";
 
-export const fetchSanityHeader = async (): Promise<HEADER_QUERYResult> => {
+export const fetchSanityHeader = async (): Promise<HEADER_QUERY_RESULT> => {
   const { data } = await sanityFetch({
     query: HEADER_QUERY,
   });
   return data;
 };
 
-export const fetchSanityFooter = async (): Promise<FOOTER_QUERYResult> => {
+export const fetchSanityFooter = async (): Promise<FOOTER_QUERY_RESULT> => {
   const { data } = await sanityFetch({
     query: FOOTER_QUERY,
   });
   return data;
 };
 
-export const fetchSanityBanner = async (): Promise<BANNER_QUERYResult> => {
+export const fetchSanityBanner = async (): Promise<BANNER_QUERY_RESULT> => {
   const { data } = await sanityFetch({
     query: BANNER_QUERY,
   });
@@ -53,7 +53,7 @@ export const fetchSanityPageBySlug = async ({
   slug,
 }: {
   slug: string;
-}): Promise<PAGE_QUERYResult> => {
+}): Promise<PAGE_QUERY_RESULT> => {
   const { data } = await sanityFetch({
     query: PAGE_QUERY,
     params: { slug },
@@ -63,7 +63,7 @@ export const fetchSanityPageBySlug = async ({
 };
 
 export const fetchSanityPagesStaticParams =
-  async (): Promise<PAGES_SLUGS_QUERYResult> => {
+  async (): Promise<PAGES_SLUGS_QUERY_RESULT> => {
     const { data } = await sanityFetch({
       query: PAGES_SLUGS_QUERY,
       perspective: "published",
@@ -79,7 +79,7 @@ export const fetchSanityPosts = async ({
 }: {
   page?: number;
   limit: number;
-}): Promise<POSTS_QUERYResult> => {
+}): Promise<POSTS_QUERY_RESULT> => {
   const offset = page && limit ? (page - 1) * limit : 0;
   const end = offset + limit;
   const { data } = await sanityFetch({
@@ -91,7 +91,7 @@ export const fetchSanityPosts = async ({
 };
 
 export const fetchSanityChangelogs =
-  async (): Promise<CHANGELOGS_QUERYResult> => {
+  async (): Promise<CHANGELOGS_QUERY_RESULT> => {
     const { data } = await sanityFetch({
       query: CHANGELOGS_QUERY,
     });
@@ -99,7 +99,7 @@ export const fetchSanityChangelogs =
     return data;
   };
 
-export const fetchSanityTeam = async (): Promise<TEAM_QUERYResult> => {
+export const fetchSanityTeam = async (): Promise<TEAM_QUERY_RESULT> => {
   const { data } = await sanityFetch({
     query: TEAM_QUERY,
   });
@@ -117,7 +117,7 @@ export const fetchSanityPostBySlug = async ({
   slug,
 }: {
   slug: string;
-}): Promise<POST_QUERYResult> => {
+}): Promise<POST_QUERY_RESULT> => {
   const { data } = await sanityFetch({
     query: POST_QUERY,
     params: { slug },
@@ -127,7 +127,7 @@ export const fetchSanityPostBySlug = async ({
 };
 
 export const fetchSanityPostsStaticParams =
-  async (): Promise<POSTS_SLUGS_QUERYResult> => {
+  async (): Promise<POSTS_SLUGS_QUERY_RESULT> => {
     const { data } = await sanityFetch({
       query: POSTS_SLUGS_QUERY,
       perspective: "published",
@@ -137,7 +137,7 @@ export const fetchSanityPostsStaticParams =
     return data;
   };
 
-export const fetchSanitySettings = async (): Promise<SETTINGS_QUERYResult> => {
+export const fetchSanitySettings = async (): Promise<SETTINGS_QUERY_RESULT> => {
   const { data } = await sanityFetch({
     query: SETTINGS_QUERY,
   });
@@ -145,7 +145,7 @@ export const fetchSanitySettings = async (): Promise<SETTINGS_QUERYResult> => {
   return data;
 };
 
-export const fetchSanityContact = async (): Promise<CONTACT_QUERYResult> => {
+export const fetchSanityContact = async (): Promise<CONTACT_QUERY_RESULT> => {
   const { data } = await sanityFetch({
     query: CONTACT_QUERY,
   });

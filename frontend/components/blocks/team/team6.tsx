@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import SectionContainer from "@/components/ui/section-container";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 import { fetchSanityTeam } from "@/sanity/lib/fetch";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
@@ -9,7 +9,7 @@ import Icon from "@/components/icon";
 import { buttonVariants } from "@/components/ui/button";
 
 type Team6Props = Extract<
-  NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],
+  NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number],
   { _type: "team-6" }
 >;
 

@@ -1,10 +1,10 @@
 import SectionContainer from "@/components/ui/section-container";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 import { fetchSanityTeam } from "@/sanity/lib/fetch";
 
 type Team1Props = Extract<
-  NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],
+  NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number],
   { _type: "team-1" }
 >;
 

@@ -1,8 +1,8 @@
 import SectionContainer from "@/components/ui/section-container";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 import Feature117Card from "./feature117-card";
 
-type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number];
+type Block = NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number];
 type Feature117 = Extract<Block, { _type: "feature-117" }>;
 
 export default function Feature117({ padding, columns }: Feature117) {

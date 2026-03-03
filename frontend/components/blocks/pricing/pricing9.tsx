@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import SectionContainer from "@/components/ui/section-container";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import {
@@ -17,7 +17,7 @@ import { CheckIcon, Info, MinusIcon } from "lucide-react";
 import { Fragment, useState } from "react";
 
 type Pricing9Props = Extract<
-  NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],
+  NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number],
   { _type: "pricing-9" }
 >;
 

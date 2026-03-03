@@ -22,7 +22,8 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
   const [formState, setFormState] = useState<ContactFormState>({});
 
   const form = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema),
+    // Assertion: @hookform/resolvers typings target Zod 3; Zod 4 works at runtime
+    resolver: zodResolver(contactFormSchema) as never,
     defaultValues: {
       firstName: "",
       lastName: "",

@@ -2,12 +2,12 @@ import { cn } from "@/lib/utils";
 import SectionContainer from "@/components/ui/section-container";
 import Link from "next/link";
 import Image from "next/image";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 import { urlFor } from "@/sanity/lib/image";
 import { buttonVariants } from "@/components/ui/button";
 
 type Compare5Props = Extract<
-  NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],
+  NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number],
   { _type: "compare-5" }
 >;
 

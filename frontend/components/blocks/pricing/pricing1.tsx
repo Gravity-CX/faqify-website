@@ -1,12 +1,12 @@
 import { cn } from "@/lib/utils";
 import SectionContainer from "@/components/ui/section-container";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { Check } from "lucide-react";
 
 type Pricing1Props = Extract<
-  NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],
+  NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number],
   { _type: "pricing-1" }
 >;
 

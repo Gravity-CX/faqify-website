@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 import VideoPlayer from "@/components/blocks/timelines/video-player";
 
-type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number];
+type Block = NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number];
 type Feature1 = Extract<Block, { _type: "feature-1" }>;
 type FeatureImage = Extract<
   NonNullable<Feature1["columns"]>[number],

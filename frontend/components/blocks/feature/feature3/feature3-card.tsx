@@ -6,10 +6,10 @@ import {
 } from "@/components/ui/card";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 import Icon from "@/components/icon";
 
-type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number];
+type Block = NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number];
 type Feature3 = Extract<Block, { _type: "feature-3" }>;
 type Feature3Card = Extract<
   NonNullable<Feature3["columns"]>[number],

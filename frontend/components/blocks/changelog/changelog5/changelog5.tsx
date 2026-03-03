@@ -11,11 +11,11 @@ import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import PostDate from "@/components/post-date";
-import { PAGE_QUERYResult, CHANGELOGS_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT, CHANGELOGS_QUERY_RESULT } from "@/sanity.types";
 import PortableTextRenderer from "@/components/portable-text-renderer";
 
 type Changelogs5Props = Extract<
-  NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],
+  NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number],
   { _type: "changelog-5" }
 >;
 
@@ -25,7 +25,7 @@ export default function Changelog5({
   links,
   changelogs,
 }: Pick<Changelogs5Props, "title" | "secondaryTitle" | "links"> & {
-  changelogs: CHANGELOGS_QUERYResult;
+  changelogs: CHANGELOGS_QUERY_RESULT;
 }) {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const sectionRefs = useRef<Record<string, HTMLElement>>({});

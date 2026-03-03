@@ -18,10 +18,10 @@ import { cn } from "@/lib/utils";
 import Icon from "@/components/icon";
 import { Badge } from "@/components/ui/badge";
 import SectionContainer from "@/components/ui/section-container";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 
 type Gallery3Props = Extract<
-  NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],
+  NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number],
   { _type: "gallery-3" }
 >;
 

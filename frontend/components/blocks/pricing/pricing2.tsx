@@ -11,7 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import SectionContainer from "@/components/ui/section-container";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 import Link from "next/link";
 import Icon from "@/components/icon";
 import { buttonVariants } from "@/components/ui/button";
@@ -20,7 +20,7 @@ import { Switch } from "@/components/ui/switch";
 import { CircleCheck } from "lucide-react";
 
 type Pricing2Props = Extract<
-  NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],
+  NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number],
   { _type: "pricing-2" }
 >;
 

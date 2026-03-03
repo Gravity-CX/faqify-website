@@ -3,12 +3,12 @@ import { Fragment } from "react";
 import SectionContainer from "@/components/ui/section-container";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 import { urlFor } from "@/sanity/lib/image";
 import { CheckCircle2, CircleMinus } from "lucide-react";
 
 type Compare2Props = Extract<
-  NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number],
+  NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number],
   { _type: "compare-2" }
 >;
 

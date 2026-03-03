@@ -1,8 +1,8 @@
 import { urlFor } from "@/sanity/lib/image";
-import {
-  PAGE_QUERYResult,
-  POST_QUERYResult,
-  CONTACT_QUERYResult,
+import type {
+  PAGE_QUERY_RESULT,
+  POST_QUERY_RESULT,
+  CONTACT_QUERY_RESULT,
 } from "@/sanity.types";
 import { getOgImageUrl } from "@/sanity/lib/fetch";
 const isProduction = process.env.NEXT_PUBLIC_SITE_ENV === "production";
@@ -12,7 +12,7 @@ export function generatePageMetadata({
   slug,
   type,
 }: {
-  page: PAGE_QUERYResult | POST_QUERYResult | CONTACT_QUERYResult;
+  page: PAGE_QUERY_RESULT | POST_QUERY_RESULT | CONTACT_QUERY_RESULT;
   slug: string;
   type: "post" | "page";
 }) {

@@ -5,9 +5,9 @@ import Link from "next/link";
 import Tag from "@/components/ui/tag";
 import Icon from "@/components/icon";
 import { createElement } from "react";
-import { PAGE_QUERYResult } from "@/sanity.types";
+import { PAGE_QUERY_RESULT } from "@/sanity.types";
 
-type Block = NonNullable<NonNullable<PAGE_QUERYResult>["blocks"]>[number];
+type Block = NonNullable<NonNullable<PAGE_QUERY_RESULT>["blocks"]>[number];
 type Feature1 = Extract<Block, { _type: "feature-1" }>;
 type FeatureContent = Extract<
   NonNullable<Feature1["columns"]>[number],
