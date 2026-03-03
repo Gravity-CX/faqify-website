@@ -410,10 +410,10 @@ const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
             y2: "0%",
           }}
           animate={{
-            x1: gradientCoordinates.x1,
-            x2: gradientCoordinates.x2,
-            y1: gradientCoordinates.y1,
-            y2: gradientCoordinates.y2,
+            x1: [...gradientCoordinates.x1],
+            x2: [...gradientCoordinates.x2],
+            y1: [...gradientCoordinates.y1],
+            y2: [...gradientCoordinates.y2],
           }}
           transition={{
             delay,
