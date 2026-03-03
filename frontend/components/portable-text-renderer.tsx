@@ -163,16 +163,20 @@ const portableTextComponents: PortableTextProps["components"] = {
       value?: { href?: string; target?: boolean };
       children: ReactNode;
     }) => {
-      return (
-        <Link
-          href={value?.href}
-          target={value?.target ? "_blank" : undefined}
-          rel={value?.target ? "noopener" : undefined}
-          className="underline"
-        >
-          {children}
-        </Link>
-      );
+      const href = value?.href;
+      if (href) {
+        return (
+          <Link
+            href={href}
+            target={value?.target ? "_blank" : undefined}
+            rel={value?.target ? "noopener" : undefined}
+            className="underline"
+          >
+            {children}
+          </Link>
+        );
+      }
+      return <span className="underline">{children}</span>;
     },
   },
   list: {
