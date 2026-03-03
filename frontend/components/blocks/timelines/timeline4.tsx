@@ -59,8 +59,7 @@ export default function Timeline4({
           )}
           {description && (
             <p className="max-w-[600px] tracking-[-0.32px] text-muted-foreground">
-              Take control of your workflow step-by-step with smart tools,
-              actionable insights, and seamless collaboration
+              Stop letting product changes turn into outdated docs and wrong answers. Every call, session, and system update automatically feeds your knowledge layer
             </p>
           )}
         </div>
