@@ -92,6 +92,7 @@ import pricing2 from "./schemas/blocks/pricing/pricing2";
 import pricing7 from "./schemas/blocks/pricing/pricing7";
 import pricing9 from "./schemas/blocks/pricing/pricing9";
 import pricing16 from "./schemas/blocks/pricing/pricing16";
+import pricingHero from "./schemas/blocks/pricing/pricing-hero";
 // Team
 import team1 from "./schemas/blocks/team/team1";
 import team2 from "./schemas/blocks/team/team2";
@@ -217,6 +218,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     pricing7,
     pricing9,
     pricing16,
+    pricingHero,
     // Team
     team1,
     team2,

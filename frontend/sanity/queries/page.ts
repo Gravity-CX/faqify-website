@@ -46,6 +46,7 @@ import { pricing2Query } from "./pricing/pricing2";
 import { pricing7Query } from "./pricing/pricing7";
 import { pricing9Query } from "./pricing/pricing9";
 import { pricing16Query } from "./pricing/pricing16";
+import { pricingHeroQuery } from "./pricing/pricing-hero";
 import { team1Query } from "./team/team1";
 import { team2Query } from "./team/team2";
 import { team3Query } from "./team/team3";
@@ -121,6 +122,7 @@ export const PAGE_QUERY = groq`
       ${pricing7Query},
       ${pricing9Query},
       ${pricing16Query},
+      ${pricingHeroQuery},
       ${team1Query},
       ${team2Query},
       ${team3Query},

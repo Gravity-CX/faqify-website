@@ -95,6 +95,7 @@ export default defineType({
         { type: "pricing-7" },
         { type: "pricing-9" },
         { type: "pricing-16" },
+        { type: "pricing-hero" },
         { type: "section-header" },
         { type: "legal-section" },
         { type: "team-1" },
@@ -201,6 +202,7 @@ export default defineType({
                 "pricing-7",
                 "pricing-9",
                 "pricing-16",
+                "pricing-hero",
               ],
             },
             {

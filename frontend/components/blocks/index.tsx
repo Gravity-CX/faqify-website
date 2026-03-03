@@ -45,6 +45,7 @@ import Pricing2 from "@/components/blocks/pricing/pricing2";
 import Pricing7 from "@/components/blocks/pricing/pricing7";
 import Pricing9 from "@/components/blocks/pricing/pricing9";
 import Pricing16 from "@/components/blocks/pricing/pricing16";
+import PricingHero from "@/components/blocks/pricing/pricing-hero";
 import Team1 from "@/components/blocks/team/team1";
 import Team2 from "@/components/blocks/team/team2";
 import Team3 from "@/components/blocks/team/team3";
@@ -120,6 +121,7 @@ const componentMap = {
   "pricing-7": Pricing7,
   "pricing-9": Pricing9,
   "pricing-16": Pricing16,
+  "pricing-hero": PricingHero,
   "team-1": Team1,
   "team-2": Team2,
   "team-3": Team3,
