@@ -613,7 +613,6 @@ export type Integration13 = {
   }>;
   button?: Link;
 };
-
 export type Integration11 = {
   _type: "integration-11";
   padding?: SectionPadding;
